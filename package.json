@@ -5,6 +5,7 @@
         "ng": "ng",
         "start": "ng serve --aot -o --port 4229",
         "build:prod": "ng build --prod",
+        "build:pub": "ng build --prod --output-path docs --base-href https://ricardowm.github.io/practica/",
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e"
