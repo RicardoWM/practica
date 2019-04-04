@@ -9,3 +9,10 @@ img {
     justify-content: center;
     align-items: center;
 }
+
+.barra-botones {
+    display: flex;
+    button {
+        margin: 5px;
+    }
+}

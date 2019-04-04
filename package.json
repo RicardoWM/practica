@@ -6,6 +6,8 @@
         "start": "ng serve --aot -o --port 4229",
         "build:prod": "ng build --prod",
         "build:pub": "ng build --prod --output-path docs --base-href https://ricardowm.github.io/practica/",
+        "push": "git add * && git commit -m 'pub' && git push",
+        "pub": "npm run build:pub && npm run push",
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e"
