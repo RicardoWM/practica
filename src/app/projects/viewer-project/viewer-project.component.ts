@@ -23,9 +23,6 @@ export class ViewerProjectComponent implements OnInit {
     this.id = this.activatedRoute.snapshot.params.id;
 // tslint:disable-next-line: triple-equals
     this.project = this.projects.find((pro: Project) => pro.id == this.id);
-    console.log(this.projects);
-    console.log(this.id);
-    console.log(this.project);
   }
 
 }
