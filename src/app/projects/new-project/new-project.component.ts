@@ -1,6 +1,7 @@
+import { ProjectsService } from './../projects.service';
 import { environment } from 'src/environments/environment';
 import { Component, OnInit } from '@angular/core';
-import { Project } from '../project';
+import { Project } from '../project.model';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,18 +15,16 @@ export class NewProjectComponent implements OnInit {
   name: string;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private projectService: ProjectsService
   ) { }
 
   ngOnInit() {
-    this.name = '';
+    this.project = {id: 0, name: ''};
   }
 
-  SaveProject() {
-    this.project = {id: 0, name: this.name}
-    const ids = environment.projects.map((p: Project) => p.id);
-    this.project.id = Math.max(...ids) + 1;
-    environment.projects.push(this.project);
+  SavePro(project: Project) {
+    this.projectService.SaveProject(project);
     this.router.navigate(['/projects']);
   }
 

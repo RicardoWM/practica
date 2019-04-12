@@ -1,4 +1,5 @@
-import { environment } from 'src/environments/environment';
+import { ProjectsService } from './../projects.service';
+import { Project } from './../project.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,11 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectsComponent implements OnInit {
 
-  projects = environment.projects;
+  projects: Project[];
 
-  constructor() { }
+  constructor(
+    private projectService: ProjectsService
+  ) { }
 
   ngOnInit() {
+    this.projects = this.projectService.projects;
   }
 
 }

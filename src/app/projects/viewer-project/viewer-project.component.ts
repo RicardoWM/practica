@@ -1,7 +1,8 @@
+import { ProjectsService } from './../projects.service';
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { ActivatedRoute } from '@angular/router';
-import { Project } from '../project';
+import { Project } from '../project.model';
 
 @Component({
   selector: 'rgl-viewer-project',
@@ -10,19 +11,17 @@ import { Project } from '../project';
 })
 export class ViewerProjectComponent implements OnInit {
 
-  projects: Project[];
   id: number;
   project: Project;
 
   constructor(
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private projectService: ProjectsService
   ) { }
 
   ngOnInit() {
-    this.projects = environment.projects;
     this.id = this.activatedRoute.snapshot.params.id;
-// tslint:disable-next-line: triple-equals
-    this.project = this.projects.find((pro: Project) => pro.id == this.id);
+    this.project = this.projectService.SelectProject(this.id);
   }
 
 }
