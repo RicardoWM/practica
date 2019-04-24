@@ -9,14 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectsComponent implements OnInit {
 
-  projects: Project[];
-
   constructor(
-    private projectService: ProjectsService
+    public projectService: ProjectsService
   ) { }
 
   ngOnInit() {
-    this.projects = this.projectService.projects;
+    this.projectService.getProjects();
   }
 
 }

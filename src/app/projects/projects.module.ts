@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { ProjectsRoutingModule } from './projects-routing.module';
 import { ProjectsComponent } from './projects/projects.component';
@@ -11,9 +12,18 @@ import { FilterProjectsFormComponent } from './filter-projects-form/filter-proje
 import { ProjectsListComponent } from './projects-list/projects-list.component';
 import { ViewerProjectFormComponent } from './viewer-project-form/viewer-project-form.component';
 import { NewProjectFormComponent } from './new-project-form/new-project-form.component';
+import { ProjectsService } from './projects.service';
 
 @NgModule({
-  declarations: [ProjectsComponent, ViewerProjectComponent, NewProjectComponent, DashboardComponent, FilterProjectsFormComponent, ProjectsListComponent, ViewerProjectFormComponent, NewProjectFormComponent],
+  declarations: [
+    ProjectsComponent,
+    ViewerProjectComponent,
+    NewProjectComponent,
+    DashboardComponent,
+    FilterProjectsFormComponent,
+    ProjectsListComponent,
+    ViewerProjectFormComponent,
+    NewProjectFormComponent],
   imports: [
     CommonModule,
     ProjectsRoutingModule,

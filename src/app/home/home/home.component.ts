@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { ProjectsService } from '../../projects/projects.service';
+import { Project } from '../../projects/project.model';
 
 @Component({
   selector: 'rgl-home',
@@ -8,11 +10,14 @@ import { environment } from 'src/environments/environment';
 })
 export class HomeComponent implements OnInit {
 
-  projects = environment.projects;
+  projects: Project[];
 
-  constructor() { }
+  constructor(
+    public projectsService: ProjectsService
+  ) { }
 
   ngOnInit() {
+    this.projectsService.getProjects();
   }
 
 }
