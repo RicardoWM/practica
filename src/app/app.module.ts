@@ -4,7 +4,10 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProjectsService } from './projects/projects.service';
+import { AuditInterceptorService } from './notifications/audit-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -14,9 +17,17 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuditInterceptorService,
+      multi: true
+    },
+    ProjectsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

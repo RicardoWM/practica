@@ -1,0 +1,15 @@
+:host {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    flex: 1;
+}
+
+.footer {
+    color: white;
+    background-color: #7B1FA2;
+    text-align: center;
+}

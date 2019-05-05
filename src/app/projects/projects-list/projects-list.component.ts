@@ -11,6 +11,7 @@ export class ProjectsListComponent implements OnInit {
   @Input() public projects: Project[];
 
   constructor() { }
+  displayedColumns: string[] = ['Project'];
 
   ngOnInit() {
   }

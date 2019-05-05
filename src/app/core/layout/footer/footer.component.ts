@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NotificationsStoreService } from 'src/app/notifications/notifications-store.service';
 
 @Component({
   selector: 'rgl-footer',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  public lastNote$;
+
+  constructor(public notificationsStore: NotificationsStoreService) { }
 
   ngOnInit() {
+    this.lastNote$ = this.notificationsStore.selectLast$();
   }
 
 }

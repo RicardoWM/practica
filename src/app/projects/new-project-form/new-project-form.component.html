@@ -1,4 +1,10 @@
-<div class="container">
-    <input class="form-control" type="text" [(ngModel)]="project.name" placeholder="New project">
-    <button type="button" class="btn btn-light" (click)="save.emit(project)"><i class="fas fa-plus-circle"></i></button>
-</div>
+<!-- Angular Material -->
+<form class="example-container" [formGroup]="formGroup" (ngSubmit)="SaveProject()">
+    <mat-form-field>
+        <input matInput placeholder="New project" formControlName="name">
+        <mat-error *ngIf="formGroup.get('name').invalid">El nombre del proyecto es obligatorio</mat-error>
+    </mat-form-field>
+    <button color="primary" mat-raised-button type="submit" [disabled]="formGroup.invalid">
+      Agregar
+  </button>
+</form>

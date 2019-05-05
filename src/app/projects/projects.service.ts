@@ -4,9 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 
 export class ProjectsService {
 
@@ -43,6 +41,7 @@ export class ProjectsService {
   }
 
   SaveProject(project: Project) {
+    project.id = 1;
     if (this.projects) {
       const ids = this.projects.map((p: Project) => p.id);
       project.id = Math.max(...ids) + 1;

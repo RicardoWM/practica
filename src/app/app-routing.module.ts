@@ -9,6 +9,10 @@ const routes: Routes = [
   {
     path: 'projects',
     loadChildren: './projects/projects.module#ProjectsModule'
+  },
+  {
+    path: 'notifications',
+    loadChildren: './notifications/notifications.module#NotificationsModule'
   }
 ];
 
